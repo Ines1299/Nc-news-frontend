@@ -1,7 +1,7 @@
 import ArticleCard from "./ArticleCard";
 import SortButton from "./SortButton";
 import { useEffect, useState } from "react";
-import fetchAllArticles from "../api/fetchArticles";
+import fetchAllArticles from "../../api/fetchArticles";
 
 export default function AllArticles() {
   const [articles, setArticles] = useState([]);
@@ -15,7 +15,6 @@ export default function AllArticles() {
     try {
       setLoading(true);
       const { articles } = await fetchAllArticles();
-      console.log("articles", articles);
       setArticles(articles);
     } catch (err) {
       console.log(err);

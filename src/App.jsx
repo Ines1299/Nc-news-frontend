@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Router, Routes, Route } from "react-router";
 import "./App.css";
 import Header from "./components/Header.jsx";
-import AllArticles from "./components/AllArticles.jsx";
+import AllArticles from "./components/homepage/AllArticles.jsx";
 import SideBar from "./components/SideBar.jsx";
 import AboutUs from "./components/AboutUs.jsx";
+import ArticlePage from "./components/article-page/ArticlePage";
 
 function App() {
   const pages = [
@@ -25,6 +26,14 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/articles/:article_id"
+          element={
+            <>
+              <ArticlePage />
+            </>
+          }
+        ></Route>
         <Route
           path="/about-us"
           element={

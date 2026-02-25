@@ -1,12 +1,14 @@
-import AllArticles from "./AllArticles";
+import ArticlePage from "./ArticlePage";
+import Author from "./Author";
 import { ThumbsUp, MessageCircle } from "lucide-react";
 
-export default function ArticleCard(props) {
+export default function Article(props) {
   const article = props.article;
+  // console.log(article);
   return (
-    <li className="article-card">
-      <img src={article.article_img_url} width="320"></img>
-      <h2 className="article-title">{article.title}</h2>
+    <>
+      <Author article={article} />
+      <h1>{article.title}</h1>;<img src={article.article_img_url}></img>
       <p className="article-topic">{article.topic}</p>
       <div className="article-info">
         <ThumbsUp className="thumbs-up" />
@@ -14,6 +16,7 @@ export default function ArticleCard(props) {
         <MessageCircle className="comment" />
         <p className="article-comments">{article.comment_count}</p>
       </div>
-    </li>
+      <p>{article.body}</p>
+    </>
   );
 }
