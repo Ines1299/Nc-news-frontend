@@ -10,16 +10,15 @@ export default function ArticleCard(props) {
         <img src={article.article_img_url} width="320"></img>
         <h2 className="article-title">{article.title}</h2>
         <div className="article-info">
-          <p className="article-topic">{article.topic}</p>
-          <div className="properties">
+          <p className="articles-topic">{article.topic}</p>
+          <div className="article-properties">
             <ThumbsUp className="thumbs-up" />
-
             <p className="article-votes">{article.votes}</p>
           </div>
-          <div className="properties">
-            <MessageCircle className="comment" />
+          <div className="article-properties">
+            <MessageCircle className="article-comment-symbol" />
+            <p className="article-comments">{article.comment_count}</p>
           </div>
-          <p className="article-comments">{article.comment_count}</p>
         </div>
       </li>
     </Link>

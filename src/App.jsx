@@ -5,7 +5,7 @@ import "./App.css";
 import UserPage from "./components/logged-in-user/UserPage.jsx";
 import Header from "./components/Header.jsx";
 import AllArticles from "./components/homepage/AllArticles.jsx";
-import SideBar from "./components/SideBar.jsx";
+import SideMenu from "./components/SideMenu.jsx";
 import AboutUs from "./components/AboutUs.jsx";
 import ArticlePage from "./components/article-page/ArticlePage";
 
@@ -18,7 +18,8 @@ function App() {
   return (
     <>
       <UserProvider>
-        <Header title="NC News" pages={pages} />
+        <Header title="NC News" pages={pages}></Header>
+
         <Routes>
           <Route
             path="/"

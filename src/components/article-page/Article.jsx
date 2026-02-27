@@ -10,9 +10,9 @@ export default function Article({ article, handleVote }) {
       <h1 className="articleTitle">{article.title}</h1>
       <Author article={article} />
       <img src={article.article_img_url}></img>
-      <div className="article-something">
+      <div className="article-info">
         <p className="article-topic">{article.topic}</p>
-        <div className="article-info">
+        <div className="article-votes">
           <VoteButtons handleVote={handleVote} />
           <p className="article-votes">{article.votes}</p>
           <MessageCircle className="comment" />
