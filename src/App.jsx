@@ -5,7 +5,6 @@ import "./App.css";
 import UserPage from "./components/logged-in-user/UserPage.jsx";
 import Header from "./components/Header.jsx";
 import AllArticles from "./components/homepage/AllArticles.jsx";
-import SideMenu from "./components/SideMenu.jsx";
 import AboutUs from "./components/AboutUs.jsx";
 import ArticlePage from "./components/article-page/ArticlePage";
 
@@ -50,6 +49,14 @@ function App() {
             element={
               <>
                 <UserPage />
+              </>
+            }
+          />
+          <Route
+            path="/topics/:topic"
+            element={
+              <>
+                <AllArticles />
               </>
             }
           />

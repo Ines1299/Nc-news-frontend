@@ -16,9 +16,9 @@ export default function SideMenu() {
         </button>
 
         <h2>Topics</h2>
-        <Link to="/coding">Coding</Link>
-        <Link to="/cooking">Cooking</Link>
-        <Link to="football">Football</Link>
+        <Link to="/topics/coding">Coding</Link>
+        <Link to="/topics/cooking">Cooking</Link>
+        <Link to="/topics/football">Football</Link>
       </div>
     </>
   );

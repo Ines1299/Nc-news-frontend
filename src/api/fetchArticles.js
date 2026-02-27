@@ -1,6 +1,9 @@
-export default async function fetchAllArticles() {
-  const url = "https://nc-news-oc7g.onrender.com/api/articles";
+export default async function fetchAllArticles(topic) {
+  let url = "https://nc-news-oc7g.onrender.com/api/articles";
 
+  if (topic) {
+    url += `?topic=${topic}`;
+  }
   try {
     const response = await fetch(url);
     if (!response.ok) throw new Error(`Response status: ${response.status}`);
