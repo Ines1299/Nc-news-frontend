@@ -1,15 +1,9 @@
-export default async function postComment(article_id) {
-  const url = `https://nc-news-oc7g.onrender.com/api/articles/${article_id}/comments`;
+export default async function deleteComment(comment_id) {
+  const url = `https://nc-news-oc7g.onrender.com/api/comments/${comment_id}`;
 
-  try {
-    const response = await fetch(url, {
-      method: "URL",
-    });
-    if (!response.ok) throw new Error(`Response status: ${response.status}`);
+  const response = await fetch(url, {
+    method: "DELETE",
+  });
 
-    const result = await response.json();
-    return result;
-  } catch (err) {
-    console.log(err);
-  }
+  if (!response.ok) throw new Error(`Response status: ${response.status}`);
 }

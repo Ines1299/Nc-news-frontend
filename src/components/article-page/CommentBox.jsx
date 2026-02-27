@@ -19,12 +19,12 @@ export default function CommentBox({ comment, setComments }) {
 
     setIsDeleting(true);
     setDeleteError(null);
-    setComments((currentComments) =>
-      currentComments.filter((c) => c.comment_id !== comment.comment_id),
-    );
 
     try {
       await deleteComment(comment.comment_id);
+      setComments((currentComments) =>
+        currentComments.filter((c) => c.comment_id !== comment.comment_id),
+      );
     } catch (err) {
       console.log(err);
     } finally {
