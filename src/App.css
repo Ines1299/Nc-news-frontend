@@ -142,14 +142,107 @@ h2 {
 
 .comment {
   padding: 5px;
+  width: 20px;
 }
 
 .article-info {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
 .article-card p {
   padding: 5px;
+}
+
+.user-img {
+  width: 50px;
+}
+
+.post-comment-box {
+  margin-top: 50px;
+  margin-left: 50px;
+  background-color: white;
+  color: black;
+  width: 500px;
+  height: 100px;
+}
+
+.article-page {
+  margin: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-box {
+  background-color: rgb(70, 207, 79);
+  border-radius: 20px;
+  list-style-type: none;
+}
+
+.comment-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin: 20px;
+  padding: 20px;
+}
+
+.comment-text {
+  margin: 20px;
+  padding: 20px;
+}
+
+.votes {
+  padding: 30px;
+}
+
+.thumbs-up {
+  padding: 10px;
+  width: 20px;
+}
+
+.comment-button {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+form {
+  display: flex;
+  align-items: end;
+}
+
+.article-author {
+  font-size: 20px;
+}
+
+.article-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.article-topic {
+  margin: 0;
+}
+
+.article-something {
+  display: flex;
+  justify-content: space-between;
+  max-width: 700px;
+}
+
+.article-page img {
+  display: flex;
+  justify-items: center;
+}
+
+.properties {
+  display: flex;
+  justify-content: space-around;
+}
+
+.comment-votes {
+  margin: 20px;
 }

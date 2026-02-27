@@ -9,11 +9,10 @@ export default function Comments() {
   const [loading, setLoading] = useState(false);
   const params = useParams();
   const article_id = params.article_id;
-  console.log(article_id);
+  // console.log(article_id);
 
   useEffect(() => {
-    if (!loading) getComments(article_id);
-    // console.log(article_id);
+    getComments(article_id);
   }, [article_id]);
 
   const getComments = async (article_id) => {
@@ -30,10 +29,16 @@ export default function Comments() {
 
   return (
     <div>
-      <PostComment />
+      <PostComment article_id={article_id} setComments={setComments} />
       <ul className="all-comments">
         {comments.map((comment) => {
-          return <CommentBox key={comment.comment_id} comment={comment} />;
+          return (
+            <CommentBox
+              key={comment.comment_id}
+              comment={comment}
+              setComments={setComments}
+            />
+          );
         })}
       </ul>
     </div>

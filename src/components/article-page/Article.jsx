@@ -1,20 +1,23 @@
 import ArticlePage from "./ArticlePage";
 import Author from "./Author";
-import { ThumbsUp, MessageCircle } from "lucide-react";
+import { ThumbsUp, MessageCircle, ThumbsDown } from "lucide-react";
+import VoteButtons from "./VoteButtons";
 
-export default function Article(props) {
-  const article = props.article;
-  // console.log(article);
+export default function Article({ article, handleVote }) {
+  if (!article) return <p>Loading...</p>;
   return (
     <>
+      <h1 className="articleTitle">{article.title}</h1>
       <Author article={article} />
-      <h1>{article.title}</h1>;<img src={article.article_img_url}></img>
-      <p className="article-topic">{article.topic}</p>
-      <div className="article-info">
-        <ThumbsUp className="thumbs-up" />
-        <p className="article-votes">{article.votes}</p>
-        <MessageCircle className="comment" />
-        <p className="article-comments">{article.comment_count}</p>
+      <img src={article.article_img_url}></img>
+      <div className="article-something">
+        <p className="article-topic">{article.topic}</p>
+        <div className="article-info">
+          <VoteButtons handleVote={handleVote} />
+          <p className="article-votes">{article.votes}</p>
+          <MessageCircle className="comment" />
+          <p className="article-comments">{article.comment_count}</p>
+        </div>
       </div>
       <p>{article.body}</p>
     </>
