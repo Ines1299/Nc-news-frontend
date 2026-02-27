@@ -240,9 +240,9 @@ h2 {
 /*ARTICLES PAGE */
 
 .article-page {
-  margin: 50px;
-  justify-content: center;
-  align-items: center;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
   /* border: 2px solid red; */
 }
 
@@ -252,17 +252,18 @@ h2 {
 }
 
 .article-page img {
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  max-width: 800px;
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  margin: 20px 0;
   /* border: 2px solid darkblue; */
 }
 
 .article-info {
   display: flex;
   justify-content: space-between;
-  max-width: 700px;
+  align-items: center;
+  margin-bottom: 20px;
   /* border: 2px solid mediumslateblue; */
 }
 
@@ -270,29 +271,30 @@ h2 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
   /* border: 2px solid red; */
 }
 .article-topic {
   margin: 0;
-  border: 2px solid magenta;
+  /* border: 2px solid magenta; */
 }
 /*POST COMMENT BOX */
 
-form {
+.post-comment-form {
   display: flex;
   align-items: center;
-  justify-items: center;
+  gap: 10px;
   /* border: 2px solid navy; */
 }
 
 .post-comment-box {
   margin-top: 50px;
-  margin-left: 50px;
   background-color: white;
   color: black;
-  width: 500px;
-  height: 100px;
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+
   /* border: 2px solid red; */
 }
 
@@ -306,8 +308,9 @@ form {
 
 .comment-box {
   background-color: rgb(70, 207, 79);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 16px;
+  margin-bottom: 20px;
   list-style-type: none;
   /* border: 2px solid red; */
 }
@@ -329,12 +332,12 @@ form {
 }
 
 .votes {
-  padding: 30px;
-  /* border: 2px solid yellow; */
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .thumbs-up {
-  padding: 10px;
   width: 20px;
 }
 

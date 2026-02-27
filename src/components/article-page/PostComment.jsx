@@ -29,7 +29,7 @@ export default function PostComment({ article_id, setComments }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="post-comment-form" onSubmit={handleSubmit}>
       <input
         value={newComment}
         onChange={(e) => setNewComment(e.target.value)}
