@@ -1,10 +1,10 @@
-# 📰 NC News
+# NC News
 
 ![React](https://img.shields.io/badge/React-19-blue) ![Vite](https://img.shields.io/badge/Vite-7-purple) ![React Router](https://img.shields.io/badge/React_Router-v7-orange)
 
 NC News is a front-end news application where users can browse articles, filter by topic or author, vote on articles, leave comments, and vote on comments.
 
-## ✨ Features
+## Features
 
 - Browse all articles on the homepage
 - Filter articles by topic using the side menu or nav
@@ -16,21 +16,21 @@ NC News is a front-end news application where users can browse articles, filter 
 - Vote on comments
 - View your user profile page
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **React 19** — UI framework
 - **React Router v7** — client-side routing
 - **Vite** — development server and bundler
 - **Lucide React** — icons
 
-## ⚙️ Prerequisites
+## Prerequisites
 
 Before you begin, make sure you have the following installed:
 
 - **Node.js** — v18 or higher recommended ([nodejs.org](https://nodejs.org))
 - **npm** — comes bundled with Node.js
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the repository
 
@@ -53,16 +53,16 @@ npm run dev
 
 The app will be available at http://localhost:5173 by default.
 
-> 💡 No environment variables are needed. The app connects to a hosted REST API at `https://nc-news-oc7g.onrender.com/api`.
+> No environment variables are needed. The app connects to a hosted REST API at `https://nc-news-oc7g.onrender.com/api`.
 
-## 📜 Available Scripts
+## Available Scripts
 
 - `npm run dev` — start the local development server
 - `npm run build` — build the project for production
 - `npm run preview` — preview the production build locally
 - `npm run lint` — run ESLint across the project
 
-## 🗂 Project Structure
+## Project Structure
 
 ```
 src/
@@ -111,13 +111,13 @@ src/
 └── index.css
 ```
 
-## 🔗 Back-end API
+## Back-end API
 
 This is a front-end only project. It connects to the **NC News REST API**, which is hosted on Render. The back-end handles articles, topics, users, comments, and votes.
 
 Back-end repository: https://github.com/Ines1299/NC-News
 
-## 👤 Default User
+## Default User
 
 The app currently uses a hardcoded logged-in user for demonstration purposes. The default account is:
 
