@@ -2,16 +2,18 @@ import ArticleCard from "./ArticleCard";
 import SortButton from "./SortButton";
 import TopArticles from "./TopArticles";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useParams, useSearchParams } from "react-router";
 import fetchAllArticles from "../../api/fetchArticles";
 
 export default function AllArticles() {
   const { topic } = useParams();
+  const [searchParams] = useSearchParams();
+  const search = searchParams.get("search") || "";
+
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [sortBy, setSortBy] = useState("created_at");
   const [order, setOrder] = useState("DESC");
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
     getArticles();
@@ -33,15 +35,24 @@ export default function AllArticles() {
     setSortBy(newSortBy);
     setOrder(newOrder);
   };
+  const isHomePage = !search && !topic;
 
   return (
     <>
       <div className="articles">
-        <div classname="top-articles">
-          <TopArticles />
-        </div>
+        {isHomePage && (
+          <div classname="top-articles">
+            <TopArticles />
+          </div>
+        )}
         <div className="articles-header">
-          <h2>{topic ? `${topic} Articles ` : "All Articles"}</h2>
+          <h2>
+            {search
+              ? `Results for ${search}`
+              : topic
+                ? `${topic} Articles `
+                : "All Articles"}
+          </h2>
 
           <SortButton
             sortBy={sortBy}
