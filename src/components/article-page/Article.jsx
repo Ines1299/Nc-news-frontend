@@ -1,6 +1,5 @@
-import ArticlePage from "./ArticlePage";
 import Author from "./Author";
-import { ThumbsUp, MessageCircle, ThumbsDown } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import VoteButtons from "./VoteButtons";
 
 export default function Article({ article, handleVote }) {

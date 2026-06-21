@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Router, Routes, Route } from "react-router";
+import { Routes, Route } from "react-router";
 import { UserProvider } from "./contexts/User";
 import "./App.css";
 import UserPage from "./components/logged-in-user/UserPage.jsx";

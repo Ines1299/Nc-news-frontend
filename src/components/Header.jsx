@@ -4,7 +4,7 @@ import LoggedInUserInfo from "./LoggedInUserInfo";
 import { Link } from "react-router";
 import SideMenu from "./SideMenu";
 
-export default function Header({ title, pages, children }) {
+export default function Header({ title, pages }) {
   return (
     <div className="header">
       <div className="header-left">

@@ -1,4 +1,3 @@
-import AllArticles from "./AllArticles";
 import { ThumbsUp, MessageCircle } from "lucide-react";
 import { Link } from "react-router";
 
