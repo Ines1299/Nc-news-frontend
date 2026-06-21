@@ -1,10 +1,12 @@
 import { SocialIcon } from "react-social-icons";
 
-export default function AboutUs() {
+export default function About() {
   return (
-    <div>
-      <h2>About NC News</h2>
-      <p>
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+      <h2 className="font-serif text-3xl font-semibold text-stone-900 mb-6">
+        About NC News
+      </h2>
+      <p className="text-stoe-700 leading-relaxed">
         NC News is a comprehensive project developed during the Northcoders
         JavaScript bootcamp, intended to replicate the functionalities of a
         real-world news platform. It features a custom REST API integrated with
@@ -21,9 +23,16 @@ export default function AboutUs() {
         creating a clean and user-friendly interface that enhances the overall
         user experience.
       </p>
-      <div>
-        <h2>More Work by me:</h2>
-        <SocialIcon url="https://github.com" />
+      <div className="mt-12 pt-8 border-t border-stone-200">
+        <h2 className="font-serif text-xl font-semibold text-stone-900 mb-4">
+          More Work by me
+        </h2>
+        <div className="flex gap-3">
+          <SocialIcon
+            url="https://github.com"
+            style={{ height: 36, width: 36 }}
+          />
+        </div>
       </div>
     </div>
   );

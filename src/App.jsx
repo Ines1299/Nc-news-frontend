@@ -4,15 +4,11 @@ import "./App.css";
 import UserPage from "./components/logged-in-user/UserPage.jsx";
 import Header from "./components/Header.jsx";
 import AllArticles from "./components/homepage/AllArticles.jsx";
-import AboutUs from "./components/AboutUs.jsx";
+import About from "./components/About.jsx";
 import ArticlePage from "./components/article-page/ArticlePage";
 
 function App() {
-  const pages = [
-    { title: "About us", path: "/about-us" },
-    { title: "Contact", path: "/contact" },
-    ,
-  ];
+  const pages = [{ title: "About", path: "/about" }];
   return (
     <>
       <UserProvider>
@@ -36,10 +32,10 @@ function App() {
             }
           ></Route>
           <Route
-            path="/about-us"
+            path="/about"
             element={
               <>
-                <AboutUs />
+                <About />
               </>
             }
           />
