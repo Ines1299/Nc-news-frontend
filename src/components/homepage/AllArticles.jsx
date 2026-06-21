@@ -39,14 +39,24 @@ export default function AllArticles() {
 
   return (
     <>
-      <div className="articles">
+      <div className="articles max-w-6xl mx-auto px-4 sm:px-6 pt-8">
         {isHomePage && (
           <div classname="top-articles">
             <TopArticles />
           </div>
         )}
-        <div className="articles-header">
-          <h2>
+        <div
+          className="articles-header"
+          max-w-6xl
+          mx-auto
+          px-4
+          sm:px-6
+          flex
+          items-center
+          justify-between
+          pt-8
+        >
+          <h2 className="font-serif text-2xl font-semibold text-stone-900 mt-20">
             {search
               ? `Results for ${search}`
               : topic
@@ -60,7 +70,7 @@ export default function AllArticles() {
             onSortChange={handleSortChange}
           />
         </div>
-        <ul className="all-articles">
+        <ul className="all-articles grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm mt-10">
           {articles.map((article) => {
             return <ArticleCard key={article.article_id} article={article} />;
           })}

@@ -1,3 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,7 +17,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --primary: rgb(70, 207, 79);
+  --primary: black;
   --bb-light: #f5f3ef;
   --radius-lg: 16px;
 }
@@ -23,12 +29,12 @@ a {
   transition: opacity 0.2s ease;
 }
 a:hover {
-  color: green;
+  color: black;
   opacity: 0.7;
 }
 
 button:hover {
-  border-color: green;
+  border-color: black;
 }
 button:focus,
 button:focus-visible {
@@ -41,7 +47,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: green;
+    color: black;
   }
   button {
     background-color: #f9f9f9;

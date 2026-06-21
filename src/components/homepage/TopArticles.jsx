@@ -1,6 +1,5 @@
 import ArticleCard from "./ArticleCard";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
 import fetchTopArticles from "../../api/fetchTopArticles";
 
 export default function TopArticles() {
@@ -24,17 +23,17 @@ export default function TopArticles() {
   };
 
   return (
-    <>
-      <div>
-        <div className="articles-header">
-          <h2>Top Articles</h2>
-        </div>
-        <ul className="top-articles">
-          {articles.map((article) => {
-            return <ArticleCard key={article.article_id} article={article} />;
-          })}
-        </ul>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8">
+      <div className="articles-header">
+        <h2 className="font-serif text-2xl font-semibold text-stone-900 mb-4">
+          Top Articles
+        </h2>
       </div>
-    </>
+      <ul className="top-articles grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {articles.map((article) => {
+          return <ArticleCard key={article.article_id} article={article} />;
+        })}
+      </ul>
+    </div>
   );
 }
