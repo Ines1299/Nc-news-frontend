@@ -9,7 +9,6 @@ export default function Comments() {
   const [loading, setLoading] = useState(false);
   const params = useParams();
   const article_id = params.article_id;
-  // console.log(article_id);
 
   useEffect(() => {
     getComments(article_id);
