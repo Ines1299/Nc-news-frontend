@@ -27,9 +27,12 @@ export default function Comments() {
   };
 
   return (
-    <div>
+    <div className="mx-2-3xl mx-auto px-4 sm:px-6 py-8">
+      <h2 className="font-serif text-xl font-semibold text-stone-900 mb-4">
+        Comments
+      </h2>
       <PostComment article_id={article_id} setComments={setComments} />
-      <ul className="all-comments">
+      <ul className="all-comments mt-6 space-y-4">
         {comments.map((comment) => {
           return (
             <CommentBox

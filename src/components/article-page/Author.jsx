@@ -1,5 +1,5 @@
 export default function Author(props) {
   const article = props.article;
 
-  return <h2 className="article-author">by {article.author}</h2>;
+  return <h2 className="text-sm text-stone-500">by {article.author}</h2>;
 }
