@@ -5,9 +5,9 @@ export default async function fetchUsers() {
     const response = await fetch(url);
     if (!response.ok) throw new Error(`Response status: ${response.status}`);
 
-    const result = await response.json();
-    // console.log("users", result);
-    return result;
+    const { users } = await response.json();
+
+    return users;
   } catch (err) {
     console.log(err);
   }

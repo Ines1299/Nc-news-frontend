@@ -7,7 +7,7 @@ import SideMenu from "./SideMenu";
 export default function Header({ title, pages }) {
   return (
     <header className="sticky top-0 z-10 bg-stone-50/95 backdrop-blur border-b border-stone-200">
-      <div className="max-2-6x1 mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-6">
+      <div className="max-2-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-6">
         <div className="flex items-center gap-8">
           <Link to="/">
             <h1 className="font-serif text-2xl font-semibold text-stone-900">
