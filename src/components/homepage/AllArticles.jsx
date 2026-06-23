@@ -4,6 +4,7 @@ import TopArticles from "./TopArticles";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router";
 import fetchAllArticles from "../../api/fetchArticles";
+import SkeletonCard from "../SkeletonCard";
 
 export default function AllArticles() {
   const { topic } = useParams();
@@ -41,12 +42,12 @@ export default function AllArticles() {
     <>
       <div className="articles max-w-6xl mx-auto px-4 sm:px-6 pt-8">
         {isHomePage && (
-          <div classname="top-articles">
+          <div className="top-articles">
             <TopArticles />
           </div>
         )}
         <div
-          className="articles-header"
+          className="articles-header
           max-w-6xl
           mx-auto
           px-4
@@ -54,7 +55,7 @@ export default function AllArticles() {
           flex
           items-center
           justify-between
-          pt-8
+          pt-8"
         >
           <h2 className="font-serif text-2xl font-semibold text-stone-900 mt-20">
             {search
@@ -71,9 +72,13 @@ export default function AllArticles() {
           />
         </div>
         <ul className="all-articles grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm mt-10">
-          {articles.map((article) => {
-            return <ArticleCard key={article.article_id} article={article} />;
-          })}
+          {loading
+            ? Array.from({ length: 9 }).map((_, index) => (
+                <SkeletonCard key={index} />
+              ))
+            : articles.map((article) => (
+                <ArticleCard key={article.article_id} article={article} />
+              ))}
         </ul>
       </div>
     </>

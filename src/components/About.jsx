@@ -1,4 +1,5 @@
 import { SocialIcon } from "react-social-icons";
+import SkeletonCard from "./SkeletonCard";
 
 export default function About() {
   return (
@@ -6,7 +7,7 @@ export default function About() {
       <h2 className="font-serif text-3xl font-semibold text-stone-900 mb-6">
         About NC News
       </h2>
-      <p className="text-stoe-700 leading-relaxed">
+      <p className="text-stone-700 leading-relaxed">
         NC News is a comprehensive project developed during the Northcoders
         JavaScript bootcamp, intended to replicate the functionalities of a
         real-world news platform. It features a custom REST API integrated with
@@ -29,7 +30,9 @@ export default function About() {
         </h2>
         <div className="flex gap-3">
           <SocialIcon
-            url="https://github.com"
+            url="https://github.com/Ines1299"
+            target="blank"
+            rel="noopener noreferrer"
             style={{ height: 36, width: 36 }}
           />
         </div>

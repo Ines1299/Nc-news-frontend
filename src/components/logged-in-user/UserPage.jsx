@@ -16,7 +16,6 @@ export default function UserPage() {
   useEffect(() => {
     fetchUsers().then((data) => {
       setUsers(data ?? []);
-      console.log(data);
     });
   }, []);
 

@@ -6,19 +6,25 @@ import deleteComment from "../../api/deleteComment";
 export default function CommentBox({ comment, setComments }) {
   const { loggedInUser } = useContext(UserContext);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [deleteError, setDeleteError] = useState(null);
+  const [hasVoted, setHasVoted] = useState(false);
+  const [votes, setVotes] = useState(comment.votes);
 
-  //new date format
   const created_at = comment.created_at;
   const newDate = created_at.replaceAll("T", " Time ").slice(0, -8);
 
-  const canDelete = loggedInUser.username === comment.author;
+  const isOwner = loggedInUser.username === comment.author;
+  const voteDisabled = isOwner || hasVoted;
+
+  const handleVote = (value) => {
+    if (voteDisabled) return;
+    setHasVoted(true);
+    setVotes((current) => current + value);
+  };
 
   const handleDelete = async () => {
     if (isDeleting) return;
 
     setIsDeleting(true);
-    setDeleteError(null);
 
     try {
       await deleteComment(comment.comment_id);
@@ -40,18 +46,39 @@ export default function CommentBox({ comment, setComments }) {
         <span className="font-medium text-stone-700">{comment.author}</span>
         <div className="flex items-center gap-2">
           <button
-            className="hoover:text-indigo-700 transition-colors"
+            onClick={() => handleVote(1)}
+            disabled={voteDisabled}
+            title={
+              isOwner
+                ? "You can't vote on your own comment"
+                : hasVoted
+                  ? "You've already voted"
+                  : "Upvote"
+            }
+            className={`transition-colors ${voteDisabled ? "opacity-40 cursor-not-allowed" : "hover:text-indigo-700"}`}
+            aria-label="Upvote"
+          >
+            <ThumbsUp size={14} />
+          </button>
+          <span className="comment-votes">{votes}</span>
+          <button
+            onClick={() => handleVote(-1)}
+            disabled={voteDisabled}
+            title={
+              isOwner
+                ? "You can't vote on your own comment"
+                : hasVoted
+                  ? "You've already voted"
+                  : "Downvote"
+            }
+            className={`transition-colors ${voteDisabled ? "opacity-40 cursor-not-allowed" : "hover:text-red-600"}`}
             aria-label="Downvote"
           >
             <ThumbsDown size={14} />
           </button>
-          <span className="comment-votes">{comment.votes}</span>
-          <button className="hoover:text-indigo-700 transition-colors">
-            <ThumbsUp size={14} />
-          </button>
         </div>
         <span>{newDate}</span>
-        {canDelete && (
+        {isOwner && (
           <button
             onClick={handleDelete}
             disabled={isDeleting}

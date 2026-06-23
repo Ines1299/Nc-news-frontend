@@ -1,10 +1,11 @@
 import ArticleCard from "./ArticleCard";
+import SkeletonCard from "../SkeletonCard";
 import { useEffect, useState } from "react";
 import fetchTopArticles from "../../api/fetchTopArticles";
 
 export default function TopArticles() {
   const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getTopArticles();
@@ -12,7 +13,6 @@ export default function TopArticles() {
 
   const getTopArticles = async () => {
     try {
-      setLoading(true);
       const articles = await fetchTopArticles();
       setArticles(articles ?? []);
     } catch (err) {
@@ -30,9 +30,13 @@ export default function TopArticles() {
         </h2>
       </div>
       <ul className="top-articles grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {articles.map((article) => {
-          return <ArticleCard key={article.article_id} article={article} />;
-        })}
+        {loading
+          ? Array.from({ length: 3 }).map((_, index) => (
+              <SkeletonCard key={index} />
+            ))
+          : articles.map((article) => {
+              return <ArticleCard key={article.article_id} article={article} />;
+            })}
       </ul>
     </div>
   );

@@ -23,7 +23,7 @@ export default async function fetchAllArticles(
     if (!response.ok) throw new Error(`Response status: ${response.status}`);
 
     const result = await response.json();
-    console.log(result);
+
     return result;
   } catch (err) {
     console.log(err);
