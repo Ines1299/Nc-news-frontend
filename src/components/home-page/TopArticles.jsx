@@ -1,7 +1,9 @@
-import ArticleCard from "./ArticleCard";
-import SkeletonCard from "../SkeletonCard";
 import { useEffect, useState } from "react";
+
 import fetchTopArticles from "../../api/fetchTopArticles";
+
+import ArticleCard from "./ArticleCard";
+import SkeletonCard from "../skeletons/SkeletonCard";
 
 export default function TopArticles() {
   const [articles, setArticles] = useState([]);

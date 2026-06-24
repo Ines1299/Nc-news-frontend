@@ -1,6 +1,8 @@
-import fetchComments from "../../api/fetchComments.js";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+
+import fetchComments from "../../api/fetchComments.js";
+
 import CommentBox from "./CommentBox";
 import PostComment from "./PostComment";
 

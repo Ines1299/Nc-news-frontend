@@ -15,6 +15,7 @@ export default function SortButton({ sortBy, order, onSortChange }) {
     const selected = sortOptions[e.target.value];
     onSortChange(selected.sort_by, selected.order);
   };
+
   return (
     <select id="sort-button" value={currentIndex} onChange={handleChange}>
       {sortOptions.map((opt, index) => (

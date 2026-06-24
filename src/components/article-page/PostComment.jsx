@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
-import postComment from "../../api/postComment";
 import { UserContext } from "../../contexts/User";
+
+import postComment from "../../api/postComment";
+
 import Button from "../Button";
 
 export default function PostComment({ article_id, setComments }) {

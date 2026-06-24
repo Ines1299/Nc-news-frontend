@@ -1,11 +1,14 @@
-import ArticleCard from "./ArticleCard";
-import SortButton from "./SortButton";
-import TopArticles from "./TopArticles";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router";
+
 import fetchAllArticles from "../../api/fetchArticles";
-import SkeletonCard from "../SkeletonCard";
+import fetchTopics from "../../api/fetchTopics";
+
+import ArticleCard from "./ArticleCard";
+import SkeletonCard from "../skeletons/SkeletonCard";
 import { SearchX } from "lucide-react";
+import SortButton from "./SortButton";
+import TopArticles from "./TopArticles";
 
 export default function AllArticles() {
   const { topic } = useParams();
@@ -15,6 +18,7 @@ export default function AllArticles() {
   const [loading, setLoading] = useState(false);
   const [sortBy, setSortBy] = useState("created_at");
   const [order, setOrder] = useState("DESC");
+  const [topics, setTopics] = useState([]);
 
   useEffect(() => {
     getArticles();
@@ -32,6 +36,22 @@ export default function AllArticles() {
     }
   };
 
+  useEffect(() => {
+    if (!loading) getTopics();
+  }, []);
+
+  const getTopics = async () => {
+    try {
+      setLoading(true);
+      const topics = await fetchTopics();
+      setTopics(topics);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleSortChange = (newSortBy, newOrder) => {
     setSortBy(newSortBy);
     setOrder(newOrder);
@@ -41,9 +61,9 @@ export default function AllArticles() {
   const noResults = !loading && articles.length === 0 && search;
 
   return (
-    <div className="articles max-w-6xl mx-auto px-4 sm:px-6 pt-8">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8">
       {isHomePage && (
-        <div className="top-articles">
+        <div>
           <TopArticles />
         </div>
       )}
@@ -80,6 +100,17 @@ export default function AllArticles() {
                   ? `"${topic}" Articles `
                   : "All Articles"}
             </h2>
+            <p>
+              {topics.map((t) => {
+                if (t.slug === topic) {
+                  return (
+                    <>
+                      <p key={t.slug}>{t.description}</p>
+                    </>
+                  );
+                }
+              })}
+            </p>
             <SortButton
               sortBy={sortBy}
               order={order}

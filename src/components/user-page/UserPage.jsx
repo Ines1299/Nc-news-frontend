@@ -1,13 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/User";
-import { FileText, ChevronDown } from "lucide-react";
 import { useParams } from "react-router";
-import fetchUsers from "../../api/fetchUsers";
-import fetchArticles from "../../api/fetchArticles";
 
-import ArticleCard from "../homepage/ArticleCard";
+import fetchArticles from "../../api/fetchArticles";
+import fetchUsers from "../../api/fetchUsers";
+
+import { FileText, ChevronDown } from "lucide-react";
+
+import ArticleCard from "../home-page/ArticleCard";
 import Button from "../Button";
-import SkeletonCard from "../SkeletonCard";
+import SkeletonCard from "../skeletons/SkeletonCard";
 
 export default function UserPage() {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);

@@ -1,5 +1,4 @@
 import { SocialIcon } from "react-social-icons";
-import SkeletonCard from "./SkeletonCard";
 
 export default function About() {
   return (

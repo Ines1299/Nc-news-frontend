@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export default function Nav({ pages }) {
   return (
-    <nav className="nav">
+    <nav>
       <ul className="flex items-center gap-1">
         {pages.map((page) => {
           return (

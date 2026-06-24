@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { useEffect, useState } from "react";
+
 import fetchTopics from "../../api/fetchTopics.js";
+
 import { Utensils, Code2, Trophy } from "lucide-react";
 
 const icons = {
@@ -8,6 +10,7 @@ const icons = {
   coding: <Code2 size={13} />,
   football: <Trophy size={13} />,
 };
+
 export default function Topics() {
   const [topics, setTopics] = useState([]);
   const [loading, setLoading] = useState(false);

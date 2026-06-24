@@ -2,11 +2,11 @@ import "./App.css";
 import { Routes, Route } from "react-router";
 import { UserProvider } from "./contexts/User";
 
-import AllArticles from "./components/homepage/AllArticles.jsx";
+import AllArticles from "./components/home-page/AllArticles.jsx";
 import About from "./components/About.jsx";
 import ArticlePage from "./components/article-page/ArticlePage";
 import Header from "./components/nav-bar/Header.jsx";
-import UserPage from "./components/logged-in-user/UserPage.jsx";
+import UserPage from "./components/user-page/UserPage.jsx";
 import Footer from "./components/Footer";
 
 function App() {

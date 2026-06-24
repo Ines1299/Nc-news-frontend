@@ -1,8 +1,9 @@
+import { Link } from "react-router";
+
+import LoggedInUserInfo from "./LoggedInUserInfo.jsx";
 import Nav from "./Nav.jsx";
 import SearchBar from "../SearchBar.jsx";
 import Topics from "./Topics";
-import LoggedInUserInfo from "../LoggedInUserInfo.jsx";
-import { Link } from "react-router";
 
 export default function Header({ title, pages }) {
   return (

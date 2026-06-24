@@ -1,5 +1,6 @@
-import { ThumbsUp, MessageCircle } from "lucide-react";
 import { Link } from "react-router";
+
+import { ThumbsUp, MessageCircle } from "lucide-react";
 
 export default function ArticleCard(props) {
   const article = props.article;
