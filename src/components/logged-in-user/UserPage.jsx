@@ -4,6 +4,7 @@ import { FileText, ChevronDown } from "lucide-react";
 import fetchUsers from "../../api/fetchUsers";
 import fetchArticles from "../../api/fetchArticles";
 import ArticleCard from "../homepage/ArticleCard";
+import SkeletonCard from "../SkeletonCard";
 import Button from "../Button";
 
 export default function UserPage() {
@@ -94,9 +95,13 @@ export default function UserPage() {
           </div>
         ) : (
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {userArticles.map((article) => (
-              <ArticleCard key={article.article_id} article={article} />
-            ))}
+            {loadingArticles
+              ? Array.from({ length: 3 }).map((_, index) => (
+                  <SkeletonCard key={index} />
+                ))
+              : userArticles.map((article) => (
+                  <ArticleCard key={article.article_id} article={article} />
+                ))}
           </ul>
         )}
       </div>

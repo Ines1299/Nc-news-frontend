@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router";
 import fetchAllArticles from "../../api/fetchArticles";
 import SkeletonCard from "../SkeletonCard";
+import { SearchX } from "lucide-react";
 
 export default function AllArticles() {
   const { topic } = useParams();
   const [searchParams] = useSearchParams();
   const search = searchParams.get("search") || "";
-
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [sortBy, setSortBy] = useState("created_at");
