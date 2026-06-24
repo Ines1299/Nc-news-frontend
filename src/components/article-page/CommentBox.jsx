@@ -1,7 +1,9 @@
-import { ThumbsUp, ThumbsDown, Trash2 } from "lucide-react";
 import { UserContext } from "../../contexts/User";
 import { useContext, useState } from "react";
+
 import deleteComment from "../../api/deleteComment";
+
+import { ThumbsUp, ThumbsDown, Trash2 } from "lucide-react";
 
 export default function CommentBox({ comment, setComments }) {
   const { loggedInUser } = useContext(UserContext);

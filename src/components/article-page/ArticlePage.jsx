@@ -1,15 +1,16 @@
-import Article from "./Article";
-import Comments from "./Comments";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+
 import fetchArticleById from "../../api/fetchArticleById";
 import patchArticle from "../../api/patchArticle";
+
+import Article from "./Article";
+import Comments from "./Comments";
 
 export default function ArticlePage() {
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(false);
   const params = useParams();
-
   const article_id = params.article_id;
 
   useEffect(() => {

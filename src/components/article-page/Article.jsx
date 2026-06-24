@@ -1,14 +1,17 @@
-import Author from "./Author";
 import { Link } from "react-router";
-import { MessageCircle } from "lucide-react";
-import VoteButtons from "./VoteButtons";
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/User";
+
+import { MessageCircle } from "lucide-react";
+
+import Author from "./Author";
+import VoteButtons from "./VoteButtons";
 
 export default function Article({ article, handleVote }) {
   const { loggedInUser } = useContext(UserContext);
   const [currentVote, setCurrentVote] = useState(null);
-
+  const created_at = article.created_at;
+  const newDate = created_at.replaceAll("T", " Time ").slice(0, -8);
   if (!article)
     return <p className="text-center text-stone-500 py-12">Loading...</p>;
 
@@ -28,6 +31,7 @@ export default function Article({ article, handleVote }) {
       handleVote(vote);
     }
   };
+
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
       <Link
@@ -63,6 +67,7 @@ export default function Article({ article, handleVote }) {
             {article.comment_count} comments
           </span>
         </a>
+        <span>{newDate}</span>
       </div>
       <p className="mt-6 text-stone-700 leading-relaxed whitespace-pre-line">
         {article.body}

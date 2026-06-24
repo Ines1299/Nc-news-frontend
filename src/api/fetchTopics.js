@@ -6,7 +6,7 @@ export default async function fetchTopics() {
     if (!response.ok) throw new Error(`Response status: ${response.status}`);
 
     const { topics } = await response.json();
-    console.log("topics", topics);
+
     return topics;
   } catch (err) {
     console.log(err);
