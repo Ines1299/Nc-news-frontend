@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router";
 import { UserProvider } from "./contexts/User";
 
 import AllArticles from "./components/home-page/AllArticles.jsx";
-import About from "./components/About.jsx";
+import About from "./components/about-page/About.jsx";
 import ArticlePage from "./components/article-page/ArticlePage";
 import Header from "./components/nav-bar/Header.jsx";
 import UserPage from "./components/user-page/UserPage.jsx";

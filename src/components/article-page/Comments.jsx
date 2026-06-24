@@ -29,7 +29,7 @@ export default function Comments() {
   };
 
   return (
-    <div className="mx-2-3xl mx-auto px-4 sm:px-6 py-8">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
       <h2 className="font-serif text-xl font-semibold text-stone-900 mb-4">
         Comments
       </h2>

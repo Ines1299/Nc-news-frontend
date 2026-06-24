@@ -10,8 +10,7 @@ import VoteButtons from "./VoteButtons";
 export default function Article({ article, handleVote }) {
   const { loggedInUser } = useContext(UserContext);
   const [currentVote, setCurrentVote] = useState(null);
-  const created_at = article.created_at;
-  const newDate = created_at.replaceAll("T", " Time ").slice(0, -8);
+
   if (!article)
     return <p className="text-center text-stone-500 py-12">Loading...</p>;
 
@@ -31,6 +30,8 @@ export default function Article({ article, handleVote }) {
       handleVote(vote);
     }
   };
+  const created_at = article.created_at;
+  const newDate = created_at.replaceAll("T", " Time ").slice(0, -8);
 
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">

@@ -89,28 +89,31 @@ export default function AllArticles() {
           px-4
           sm:px-6
           flex
-          items-center
+          items-start
           justify-between
           pt-8"
           >
-            <h2 className="font-serif text-2xl font-semibold text-stone-900 mt-20">
+            <div></div>
+            <h2 className="font-serif text-2xl font-semibold text-stone-900 mt-10">
               {search
                 ? `Results for ${search}`
                 : topic
                   ? `"${topic}" Articles `
                   : "All Articles"}
             </h2>
-            <p>
-              {topics.map((t) => {
-                if (t.slug === topic) {
-                  return (
-                    <>
-                      <p key={t.slug}>{t.description}</p>
-                    </>
-                  );
-                }
-              })}
-            </p>
+
+            {topics.map((t) => {
+              if (t.slug === topic) {
+                return (
+                  <>
+                    <p className="mt-2 text-stone-600" key={t.slug}>
+                      {t.description}
+                    </p>
+                  </>
+                );
+              }
+            })}
+
             <SortButton
               sortBy={sortBy}
               order={order}
