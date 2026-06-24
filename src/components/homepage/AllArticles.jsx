@@ -77,7 +77,7 @@ export default function AllArticles() {
               {search
                 ? `Results for ${search}`
                 : topic
-                  ? `${topic} Articles `
+                  ? `"${topic}" Articles `
                   : "All Articles"}
             </h2>
             <SortButton

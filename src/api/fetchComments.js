@@ -6,7 +6,7 @@ export default async function fetchComments(article_id) {
     if (!response.ok) throw new Error(`Response status: ${response.status}`);
 
     const result = await response.json();
-    console.log("comments", result);
+
     return result;
   } catch (err) {
     console.log(err);

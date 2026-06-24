@@ -29,7 +29,7 @@ export default function SearchBar() {
       <input
         id="search-input"
         type="text"
-        autocomplete="off"
+        autoComplete="off"
         className="search-bar bg-transparent text-sm text-stone-800 placeholder:text-stone-400 outline-none w-40 sm:w-56"
         placeholder="Find any article here ..."
         value={value}

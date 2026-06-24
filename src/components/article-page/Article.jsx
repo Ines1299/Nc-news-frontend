@@ -1,4 +1,5 @@
 import Author from "./Author";
+import { Link } from "react-router";
 import { MessageCircle } from "lucide-react";
 import VoteButtons from "./VoteButtons";
 import { useContext, useState } from "react";
@@ -29,9 +30,12 @@ export default function Article({ article, handleVote }) {
   };
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
-      <span className="inline-block text-[11px] uppercase tracking-wide font-medium text-indigo-700 border border-indigo-200 rounded-full px-2 py-0.5 mb-3">
+      <Link
+        to={`/topics/${article.topic}`}
+        className="inline-block text-[11px] uppercase tracking-wide font-medium text-indigo-700 border border-indigo-200 rounded-full px-2 py-0.5 mb-3"
+      >
         {article.topic}
-      </span>
+      </Link>
       <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-stone-900 leading-tight">
         {article.title}
       </h1>
@@ -50,15 +54,15 @@ export default function Article({ article, handleVote }) {
           currentVote={currentVote}
         />
         <span>{article.votes} votes</span>
-        <span className="flex items-center gap-1">
-          <a
-            href="#post-comment"
-            className="flex items-center gap-1 hover:text-indigo-700 transition-colors cursor-pointer"
-          >
-            <MessageCircle size={16} />
-            {article.comment_count}
-          </a>
-        </span>
+        <a
+          href="#post-comment"
+          className="flex items-center gap-1 hover:text-indigo-700 transition-colors cursor-pointer"
+        >
+          <MessageCircle size={16} />
+          <span className="flex items-center gap-1">
+            {article.comment_count} comments
+          </span>
+        </a>
       </div>
       <p className="mt-6 text-stone-700 leading-relaxed whitespace-pre-line">
         {article.body}
