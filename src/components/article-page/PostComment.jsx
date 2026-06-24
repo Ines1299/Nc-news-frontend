@@ -31,6 +31,7 @@ export default function PostComment({ article_id, setComments }) {
 
   return (
     <form
+      id="post-comment"
       className="post-comment-form flex flex-col sm:flex-row gap-3"
       onSubmit={handleSubmit}
     >

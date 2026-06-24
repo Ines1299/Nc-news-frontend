@@ -51,8 +51,13 @@ export default function Article({ article, handleVote }) {
         />
         <span>{article.votes} votes</span>
         <span className="flex items-center gap-1">
-          <MessageCircle size={16} />
-          {article.comment_count}
+          <a
+            href="#post-comment"
+            className="flex items-center gap-1 hover:text-indigo-700 transition-colors cursor-pointer"
+          >
+            <MessageCircle size={16} />
+            {article.comment_count}
+          </a>
         </span>
       </div>
       <p className="mt-6 text-stone-700 leading-relaxed whitespace-pre-line">
