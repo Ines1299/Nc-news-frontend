@@ -4,17 +4,28 @@ import VoteButtons from "./VoteButtons";
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/User";
 
-export default function Article({ article }) {
+export default function Article({ article, handleVote }) {
   const { loggedInUser } = useContext(UserContext);
-  const [hasVoted, setHasVoted] = useState(false);
+  const [currentVote, setCurrentVote] = useState(null);
+
   if (!article)
     return <p className="text-center text-stone-500 py-12">Loading...</p>;
 
   const isOwner = loggedInUser.username === article.author;
 
-  const handleVoteOnce = (vote) => {
-    if (hasVoted || isOwner) return;
-    setHasVoted(true);
+  const handleVoteToggle = (vote) => {
+    if (isOwner) return;
+
+    if (currentVote === vote) {
+      setCurrentVote(null);
+      handleVote(-vote);
+    } else {
+      if (currentVote !== null) {
+        handleVote(-currentVote);
+      }
+      setCurrentVote(vote);
+      handleVote(vote);
+    }
   };
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
@@ -33,7 +44,11 @@ export default function Article({ article }) {
         className="w-full h-72 sm:h-96 object-cover rounded-lg mt-6"
       ></img>
       <div className="flex items-center gap-6 mt-6 pb-6 border-b border-stone-200 text-sm text-stone-600">
-        <VoteButtons handleVoteOnce={handleVoteOnce} />
+        <VoteButtons
+          handleVote={handleVoteToggle}
+          isOwner={isOwner}
+          currentVote={currentVote}
+        />
         <span>{article.votes} votes</span>
         <span className="flex items-center gap-1">
           <MessageCircle size={16} />

@@ -6,26 +6,30 @@ import deleteComment from "../../api/deleteComment";
 export default function CommentBox({ comment, setComments }) {
   const { loggedInUser } = useContext(UserContext);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [hasVoted, setHasVoted] = useState(false);
+  const [currentVote, setCurrentVote] = useState(null);
   const [votes, setVotes] = useState(comment.votes);
 
   const created_at = comment.created_at;
   const newDate = created_at.replaceAll("T", " Time ").slice(0, -8);
-
   const isOwner = loggedInUser.username === comment.author;
-  const voteDisabled = isOwner || hasVoted;
 
   const handleVote = (value) => {
-    if (voteDisabled) return;
-    setHasVoted(true);
-    setVotes((current) => current + value);
+    if (isOwner) return;
+    if (currentVote === value) {
+      setCurrentVote(null);
+      setVotes((current) => current - value);
+    } else {
+      if (currentVote === value) {
+        setVotes((current) => current - currentVote);
+      }
+      setCurrentVote(value);
+      setVotes((current) => current + value);
+    }
   };
 
   const handleDelete = async () => {
     if (isDeleting) return;
-
     setIsDeleting(true);
-
     try {
       await deleteComment(comment.comment_id);
       setComments((currentComments) =>
@@ -47,15 +51,21 @@ export default function CommentBox({ comment, setComments }) {
         <div className="flex items-center gap-2">
           <button
             onClick={() => handleVote(1)}
-            disabled={voteDisabled}
+            disabled={isOwner}
             title={
               isOwner
                 ? "You can't vote on your own comment"
-                : hasVoted
-                  ? "You've already voted"
+                : currentVote === 1
+                  ? "Remove upvote"
                   : "Upvote"
             }
-            className={`transition-colors ${voteDisabled ? "opacity-40 cursor-not-allowed" : "hover:text-indigo-700"}`}
+            className={`transition-colors ${
+              isOwner
+                ? "opacity-40 cursor-not-allowed"
+                : currentVote === 1
+                  ? "text-indigo-700"
+                  : "hover:text-indigo-700"
+            }`}
             aria-label="Upvote"
           >
             <ThumbsUp size={14} />
@@ -63,15 +73,21 @@ export default function CommentBox({ comment, setComments }) {
           <span className="comment-votes">{votes}</span>
           <button
             onClick={() => handleVote(-1)}
-            disabled={voteDisabled}
+            disabled={isOwner}
             title={
               isOwner
                 ? "You can't vote on your own comment"
-                : hasVoted
-                  ? "You've already voted"
+                : currentVote === -1
+                  ? "Remove DOwnvote"
                   : "Downvote"
             }
-            className={`transition-colors ${voteDisabled ? "opacity-40 cursor-not-allowed" : "hover:text-red-600"}`}
+            className={`transition-colors ${
+              isOwner
+                ? "opacity-40 cursor-not-allowed"
+                : currentVote === -1
+                  ? "text-red-600"
+                  : "hover:text-red-600"
+            }`}
             aria-label="Downvote"
           >
             <ThumbsDown size={14} />
